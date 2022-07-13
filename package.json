@@ -1,0 +1,23 @@
+{
+  "name": "reach-sdk",
+  "version": "1.0.0",
+  "description": "A node.js library for sending notifications focused on simplicity and extensibility.",
+  "main": "reach.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paschmann/reach-sdk.git"
+  },
+  "author": "Paul Aschmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paschmann/reach-sdk/issues"
+  },
+  "homepage": "https://github.com/paschmann/reach-sdk#readme",
+  "dependencies": {
+    "nodemailer": "^6.7.7",
+    "nodemailer-ses-transport": "^1.5.1"
+  }
+}
