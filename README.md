@@ -133,14 +133,12 @@ In Discord, open the channel settings and select Integrations. Create a new webh
 ## Telegram
 
 ```
-    parameters = {
         required: {
             telegramBotToken: "Bot token",
             telegramChatID: "Chat Id",
             text: "Text"
         },
         optional: {}
-    };
 ```
 
 #### Setup
