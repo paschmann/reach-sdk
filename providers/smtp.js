@@ -11,7 +11,9 @@ class SMTP extends provider {
             smtpPort: "Server Port",
             smtpSecure: "TLS?",
             smtpFrom: "",
-            smtpTo: ""
+            smtpTo: "",
+            subject : "",
+            text: ""
         },
         optional: {
             smtpIgnoreTLSError: "True/False - Boolean",
@@ -24,11 +26,7 @@ class SMTP extends provider {
             smtpUsername: "",
             smtpPassword: "",
             smtpCC: "",
-            smtpBCC: ""
-        },
-        runtime: {
-            subject : "",
-            text: "",
+            smtpBCC: "",
             html: "",
             attachments: ""
         }
@@ -77,10 +75,10 @@ class SMTP extends provider {
             cc: notification.optional.smtpCC,
             bcc: notification.optional.smtpBCC,
             to: notification.required.smtpTo,
-            subject: notification.runtime.subject,
-            text: notification.runtime.text,
-            html: notification.runtime.html,
-            attachments: notification.runtime.attachments
+            subject: notification.required.subject,
+            text: notification.required.text,
+            html: notification.optional.html,
+            attachments: notification.optional.attachments
         });
 
         return "Sent Successfully.";

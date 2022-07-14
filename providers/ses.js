@@ -11,15 +11,13 @@ class SES extends provider {
             accessKeyId: "accessKeyId",
             secretAccessKey: "secretAccessKey",
             from: "",
-            to: ""
+            to: "",
+            subject : "",
+            text: ""
         },
         optional: {
             cc: "",
-            bcc: ""
-        },
-        runtime: {
-            subject : "",
-            text: "",
+            bcc: "",
             html: "",
             attachments: ""
         }
@@ -30,27 +28,30 @@ class SES extends provider {
     }
 
     async send(notification) {
-        
-        const config = {
-            accessKeyId: notification.required.accessKeyId,
-            secretAccessKey: notification.required.secretAccessKey
-        };
-
-        let transporter = nodemailer.createTransport(ses(config));
-
-        // send mail with defined transport object
-        await transporter.sendMail({
-            from: notification.required.from,
-            cc: notification.optional.cc,
-            bcc: notification.optional.bcc,
-            to: notification.required.to,
-            subject: notification.runtime.subject,
-            text: notification.runtime.text,
-            html: notification.runtime.html,
-            attachments: notification.runtime.attachments
-        });
-
-        return "Sent Successfully.";
+        try {
+            const config = {
+                accessKeyId: notification.required.accessKeyId,
+                secretAccessKey: notification.required.secretAccessKey
+            };
+    
+            let transporter = nodemailer.createTransport(ses(config));
+    
+            // send mail with defined transport object
+            await transporter.sendMail({
+                from: notification.required.from,
+                cc: notification.optional.cc,
+                bcc: notification.optional.bcc,
+                to: notification.required.to,
+                subject: notification.required.subject,
+                text: notification.required.text,
+                html: notification.optional.html,
+                attachments: notification.optional.attachments
+            });
+    
+            return "Sent Successfully.";
+        } catch (err) {
+            return err;
+        }
     }
 }
 
