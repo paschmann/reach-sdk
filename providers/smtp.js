@@ -9,7 +9,6 @@ class SMTP extends provider {
         required: {
             smtpHost: "Server Host",
             smtpPort: "Server Port",
-            smtpSecure: "TLS?",
             smtpFrom: "",
             smtpTo: "",
             subject : "",
@@ -25,6 +24,7 @@ class SMTP extends provider {
             smtpDkimskipFields: "",
             smtpUsername: "",
             smtpPassword: "",
+            smtpSecure: "TLS?",
             smtpCC: "",
             smtpBCC: "",
             html: "",
@@ -81,7 +81,7 @@ class SMTP extends provider {
             attachments: notification.optional.attachments
         });
 
-        return "Sent Successfully.";
+        return "Message Sent";
     }
 }
 
