@@ -1,6 +1,8 @@
 const SMTP = require("./providers/smtp");
 const SES = require("./providers/ses");
 const Slack = require("./providers/slack");
+const Telegram = require("./providers/telegram");
+const Discord = require("./providers/discord");
 
 class Reach {
     providers = {};
@@ -10,6 +12,8 @@ class Reach {
         this.providers['smtp'] = new SMTP();
         this.providers['ses'] = new SES();
         this.providers['slack'] = new Slack();
+        this.providers['telegram'] = new Telegram();
+        this.providers['discord'] = new Discord();
     }
 
     static async send(notification) {
