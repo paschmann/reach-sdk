@@ -5,9 +5,33 @@ If you would like to test out the basic concept, check out the <A href='https://
 
 ## Installing
 
-```
+```json
 npm install --save reach-sdk
 ```
+
+## Usage
+
+1. Import, create and instatiate an instance of Reach.
+
+```json
+const { Reach } = require('reach-sdk');
+Reach.init();
+```
+2. Send a notification (E.g. Slack)
+
+```json
+const slack_notification = {
+    name: 'slack',
+    required: {
+        slackwebhookURL: "Your webhook URL",
+        text: "Your text message"
+    },
+    optional: {}
+}
+
+console.log(Reach.send(slack_notification));
+```
+
 
 
 ## Providers
@@ -19,7 +43,7 @@ Below are a list of notifications that Reach currently supports.
 <hr>
 
 ## SMTP
-```
+```json
         required: {
             smtpHost: "Server Host",
             smtpPort: "Server Port",
@@ -53,7 +77,7 @@ Please follow your hosting providers instructions for setting up and getting the
 
 ## Amazon SES
 #### Parameters
-```
+```json
         required: {
             accessKeyId: "accessKeyId",
             secretAccessKey: "secretAccessKey",
@@ -76,7 +100,7 @@ Please follow this document to setup SES: <a href='https://docs.aws.amazon.com/s
 <hr>
 
 ## Slack
-```
+```json
         required: {
             slackwebhookURL: "",
             text: ""
@@ -92,7 +116,7 @@ TL;DR - Open your workspace settings, create a new app, get the webhook details 
 ## Discord
 
 #### Parameters
-```
+```json
         required: {
             discordWebhookUrl: "",
             text: ""
@@ -108,7 +132,7 @@ In Discord, open the channel settings and select Integrations. Create a new webh
 
 ## Telegram
 
-```
+```json
     parameters = {
         required: {
             telegramBotToken: "Bot token",
