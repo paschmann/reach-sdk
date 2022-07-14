@@ -1,5 +1,5 @@
-const nodemailer = require("nodemailer");
 const provider = require("./provider");
+const nodemailer = require("nodemailer");
 
 class SMTP extends provider {
 
@@ -31,10 +31,6 @@ class SMTP extends provider {
             attachments: ""
         }
     };
-
-    parameters() {
-        return this.parameters;
-    }
 
     async send(notification) {
 

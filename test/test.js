@@ -47,6 +47,19 @@ const ses_notification = {
     }
 }
 
+const slack_notification = {
+    name: 'slack',
+    required: {
+        slackwebhookURL: "",
+        text: ""
+    },
+    optional: {
+        
+    }
+}
+
+// Examples
 //console.log(Reach.send(smtp_notification));
 //console.log(Reach.send(ses_notification));
 //console.log(Reach.listProviders());
+//console.log(Reach.parameters('ses'));

@@ -1,38 +1,35 @@
+// This is a non-functioning template to use as a reference when creating a new provider
+// Please import this provider and declare it in root reach.js file
+
 const provider = require("./provider");
-const nodemailer = require('nodemailer');
-var ses = require('nodemailer-ses-transport');
 
-class SES extends provider {
+// Import any dependencies, be sure to include them in the package.json file
+const axios = require("axios");
 
-    name = "ses";
+// Change the class name
+class Slack extends provider {
+
+    // Required - name of the provider
+    name = "slack";
     
+    // Define the required and optional parameters for the provider
     parameters = {
         required: {
-            accessKeyId: "accessKeyId",
-            secretAccessKey: "secretAccessKey",
-            from: "",
-            to: "",
+            auth: "accessKey",
             subject : "",
             text: ""
         },
         optional: {
             cc: "",
-            bcc: "",
-            html: "",
-            attachments: ""
+            bcc: ""
         }
     };
 
     async send(notification) {
         try {
-            const config = {
-                accessKeyId: notification.required.accessKeyId,
-                secretAccessKey: notification.required.secretAccessKey
-            };
-    
-            let transporter = nodemailer.createTransport(ses(config));
-    
-            // send mail with defined transport object
+            // Use this send method to process the notification, you should reference the parameters using notificiation.required or notification.optional
+            
+            // Example: Send email with defined transport object
             await transporter.sendMail({
                 from: notification.required.from,
                 cc: notification.optional.cc,

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/paschmann/reach-sdk#readme",
   "dependencies": {
+    "axios": "^0.27.2",
     "nodemailer": "^6.7.7",
     "nodemailer-ses-transport": "^1.5.1"
   }

@@ -2,10 +2,6 @@ class Provider {
     name = undefined;
     parameters = {};
 
-    parameters() {
-        return this.parameters;
-    }
-
     async send(notification) {
         throw new Error("Have to override Notification.send(...)");
     }
