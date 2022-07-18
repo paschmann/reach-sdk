@@ -3,30 +3,30 @@ const axios = require("axios");
 
 class Slack extends provider {
 
-    name = "slack";
+	name = "slack";
     
-    parameters = {
-        required: {
-            slackwebhookURL: "",
-            text: ""
-        },
-        optional: {
+	parameters = {
+		required: {
+			slackwebhookURL: "",
+			text: ""
+		},
+		optional: {
             
-        }
-    };
+		}
+	};
 
-    async send(notification) {
-        try {
-            let data = {
-                "text": notification.required.text
-            };
+	async send(notification) {
+		try {
+			let data = {
+				"text": notification.required.text
+			};
 
-            await axios.post(notification.required.slackwebhookURL, data);
-            return "Sent Successfully.";
-        } catch (err) {
-            return err;
-        }
-    }
+			await axios.post(notification.required.slackwebhookURL, data);
+			return "Sent Successfully.";
+		} catch (err) {
+			return err;
+		}
+	}
 }
 
 module.exports = Slack;

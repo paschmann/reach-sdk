@@ -4,51 +4,51 @@ var ses = require('nodemailer-ses-transport');
 
 class SES extends provider {
 
-    name = "ses";
+	name = "ses";
     
-    parameters = {
-        required: {
-            accessKeyId: "accessKeyId",
-            secretAccessKey: "secretAccessKey",
-            from: "",
-            to: "",
-            subject : "",
-            text: ""
-        },
-        optional: {
-            cc: "",
-            bcc: "",
-            html: "",
-            attachments: ""
-        }
-    };
+	parameters = {
+		required: {
+			accessKeyId: "accessKeyId",
+			secretAccessKey: "secretAccessKey",
+			from: "",
+			to: "",
+			subject : "",
+			text: ""
+		},
+		optional: {
+			cc: "",
+			bcc: "",
+			html: "",
+			attachments: ""
+		}
+	};
 
-    async send(notification) {
-        try {
-            const config = {
-                accessKeyId: notification.required.accessKeyId,
-                secretAccessKey: notification.required.secretAccessKey
-            };
+	async send(notification) {
+		try {
+			const config = {
+				accessKeyId: notification.required.accessKeyId,
+				secretAccessKey: notification.required.secretAccessKey
+			};
     
-            let transporter = nodemailer.createTransport(ses(config));
+			let transporter = nodemailer.createTransport(ses(config));
     
-            // send mail with defined transport object
-            await transporter.sendMail({
-                from: notification.required.from,
-                cc: notification.optional.cc,
-                bcc: notification.optional.bcc,
-                to: notification.required.to,
-                subject: notification.required.subject,
-                text: notification.required.text,
-                html: notification.optional.html,
-                attachments: notification.optional.attachments
-            });
+			// send mail with defined transport object
+			await transporter.sendMail({
+				from: notification.required.from,
+				cc: notification.optional.cc,
+				bcc: notification.optional.bcc,
+				to: notification.required.to,
+				subject: notification.required.subject,
+				text: notification.required.text,
+				html: notification.optional.html,
+				attachments: notification.optional.attachments
+			});
     
-            return "Sent Successfully.";
-        } catch (err) {
-            return err;
-        }
-    }
+			return "Sent Successfully.";
+		} catch (err) {
+			return err;
+		}
+	}
 }
 
 module.exports = SES;
