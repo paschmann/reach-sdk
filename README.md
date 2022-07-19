@@ -51,7 +51,47 @@ console.log(Reach.send(slack_notification));
 
 Notification providers are services to which the Reach SDK can send messages to. The Reach SDK has been designed to allow contributors to create or add their own custom providers. If you would like to create or improve one for a service not currently offered, check out the <a href="providers/_template.js" target="_blank">_template</a> in the provider's folder, and submit a pull request.
 
-Below is a list of notifications that Reach currently supports.
+Below is a list of notifications that the Reach SDK currently supports.
+
+Alerta
+AWS SES
+Click Send SMS
+Discord
+Google Chat
+Line
+Slack
+SMTP
+Microsoft Teams
+Telegram
+
+<hr>
+
+## Alerta
+#### Parameters
+```
+
+required: {
+			alertaApiKey: "",
+			alertaApiEndpoint: "",
+			alertaEnvironment: "",
+			group: "",
+			event: "",
+			resource: "",
+			text: ""
+		},
+		optional: {
+			value: "",
+			tags: [""],
+			origin: "",
+			type: "",
+			service: [""],
+			correlate: [""],
+			severity: ""
+		}
+```
+
+#### Setup
+In Alerta open the menu on the left, select API Keys and create a new API key. The key will need the write:alerts scope. The API Endpoint can be found in the About menu screen.
 
 <hr>
 
@@ -79,6 +119,27 @@ Please follow this document to setup SES: <a href='https://docs.aws.amazon.com/s
 
 <hr>
 
+## Click Send SMS
+#### Parameters
+```
+
+        required: {
+			clicksendsmsLogin: "",
+			clicksendsmsApiKey: "",
+			clicksendsmsToNumber: "",
+			clicksendsmsSenderName: "",
+			text: ""
+		},
+		optional: {
+            source: ""
+        }
+```
+
+#### Setup
+In the Click Send admin panel, you can get your SMS login and API Key from the Developers, API Credentials screen.
+
+<hr>
+
 ## Discord
 
 #### Parameters
@@ -93,6 +154,38 @@ Please follow this document to setup SES: <a href='https://docs.aws.amazon.com/s
 ```
 #### Setup
 In Discord, open the channel settings and select Integrations. Create a new webhook and Copy the Webhook URL into the discordWebhookUrl parameter. The discordUsername can be any string, if empty, it will be the bots name that was provided when creating the webhook.
+
+<hr>
+
+## Google Chat
+
+#### Parameters
+```
+        required: {
+            googleChatWebhookUrl: "",
+            text: ""
+        },
+        optional: {}
+```
+#### Setup
+Important: webhooks are only enabled for Google Workspace accounts, not personal Gmail accounts.
+Please follow this document to setup a incoming webhook and get the URL: <a href='https://developers.google.com/chat/how-tos/webhooks#node.js' target='_blank'>Guide</a>
+
+<hr>
+
+## Line
+
+#### Parameters
+```
+        required: {
+            lineChannelAccessToken: "",
+			lineUserID: "",
+			text: ""
+        },
+        optional: {}
+```
+#### Setup
+Open <a href='https://developers.line.biz/console' target='_blank'>Developer Console</a>, create a provider. Open the new provider and create a new Messaging API channel. Complete the required fields and navigate to the new channel. On the Basic Settings screen, scroll to the bottom and note your Line User ID, use this in the required parameter field and where you will recieve your messages. To get a access token, select the "Message API" tab, and create a channel access token at the bottom of the screen.
 
 <hr>
 
@@ -156,3 +249,18 @@ TL;DR - Open your workspace settings, create a new app and get the webhook detai
 
 #### Setup
 Create a bot using the @botfather channel. Take note of the Access Token. To get the chat_id parameter, create a new group chat and add your new bot, also add @RawDataBot. This will print out the chat object, and in the object will be the TelegramChatID.
+
+<hr>
+
+## Microsoft Teams
+
+```
+        required: {
+            teamsWebhookUrl: "",
+			text: ""
+        },
+        optional: {}
+```
+
+#### Setup
+In order to receive notifications in MS Teams, you need to enable a incoming webhook for the channel. Open the channel settings menu using the three dots next to the channel name in Channels list, and select connectors. Select Add for the incoming webhook. Once added, select configure, provide the name and press Create. You will then receive the webhook Url. For more information, see this: <a href='https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook' target='_blank'>Guide</a>

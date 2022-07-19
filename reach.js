@@ -3,6 +3,11 @@ const SES = require("./providers/ses");
 const Slack = require("./providers/slack");
 const Telegram = require("./providers/telegram");
 const Discord = require("./providers/discord");
+const Alerta = require("./providers/alerta");
+const ClickSendSMS = require("./providers/clicksendsms");
+const GoogleChat = require("./providers/googlechat");
+const Line = require("./providers/line");
+const Teams = require("./providers/teams");
 
 class Reach {
 	providers = {};
@@ -14,6 +19,10 @@ class Reach {
 		this.providers["slack"] = new Slack();
 		this.providers["telegram"] = new Telegram();
 		this.providers["discord"] = new Discord();
+		this.providers["alerta"] = new Alerta();
+		this.providers["clicksendsms"] = new ClickSendSMS();
+		this.providers["line"] = new Line();
+		this.providers["teams"] = new Teams();
 	}
 
 	static async send(notification) {
@@ -26,7 +35,7 @@ class Reach {
 
 	static listProviders() {
 		var list = [];
-		for (let [key, _value] of Object.entries(this.providers)) {
+		for (let [key] of Object.entries(this.providers)) {
 			list.push(key);
 		}
 		return list;
