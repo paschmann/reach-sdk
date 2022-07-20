@@ -1,25 +1,28 @@
 const provider = require("./provider");
 const axios = require("axios");
 
-class Teams extends provider {
+class Webhook extends provider {
 
-	name = "teams";
+	name = "webhook";
     
 	parameters = {
 		required: {
-			teamsWebhookUrl: "",
+			webhookUrl: "",
 			text: ""
 		},
-		optional: {}
+		optional: {
+			payload: ""
+		}
 	};
 
 	async send(notification) {
 		try {
 			let data = {
 				text: notification.required.text,
+				payload: notification.optional.payload
 			};
 
-			await axios.post(notification.required.teamsWebhookUrl, data);
+			await axios.post(notification.required.webhookUrl, data);
             
 			return "Sent Successfully.";
 		} catch (err) {
@@ -28,5 +31,4 @@ class Teams extends provider {
 	}
 }
 
-module.exports = Teams;
-
+module.exports = Webhook;

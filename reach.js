@@ -8,6 +8,11 @@ const ClickSendSMS = require("./providers/clicksendsms");
 const GoogleChat = require("./providers/googlechat");
 const Line = require("./providers/line");
 const Teams = require("./providers/teams");
+const Signal = require("./providers/signal");
+const SendGrid = require("./providers/sendgrid");
+const Webhook = require("./providers/webhook");
+const Bark = require("./providers/bark");
+const Gitter = require("./providers/gitter");
 
 class Reach {
 	providers = {};
@@ -23,6 +28,11 @@ class Reach {
 		this.providers["clicksendsms"] = new ClickSendSMS();
 		this.providers["line"] = new Line();
 		this.providers["teams"] = new Teams();
+		this.providers["signal"] = new Signal();
+		this.providers["webhook"] = new Webhook();
+		this.providers["sendgrid"] = new SendGrid();
+		this.providers["bark"] = new Bark();
+		this.providers["gitter"] = new Gitter();
 	}
 
 	static async send(notification) {
