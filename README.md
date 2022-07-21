@@ -27,7 +27,10 @@ Slack
 SMTP
 Mailgun
 Matrix
+Mattermost
 Microsoft Teams
+OneSignal
+PagerDuty
 Telegram
 Webhook
 
@@ -391,6 +394,21 @@ In order to send notifications to Matrix, Reach requires the Homeserver Url, a a
 
 <hr>
 
+## Mattermost
+
+```
+        required: {
+            mattermostWebhookUrl: "",
+			text: ""
+        },
+        optional: {}
+```
+
+#### Setup
+In order to send notifications to Mattermost, you will need to enable incoming webhooks for your instance. You can do this from the Main Menu, under integrations. Copy the URL and use this in the mattermostWebhookUrl parameter.
+
+<hr>
+
 ## Microsoft Teams
 
 ```
@@ -403,6 +421,51 @@ In order to send notifications to Matrix, Reach requires the Homeserver Url, a a
 
 #### Setup
 In order to receive notifications in MS Teams, you need to enable a incoming webhook for the channel. Open the channel settings menu using the three dots next to the channel name in Channels list, and select connectors. Select Add for the incoming webhook. Once added, select configure, provide the name and press Create. You will then receive the webhook Url. For more information, see this: <a href='https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook' target='_blank'>Guide</a>
+
+<hr>
+
+## OneSignal
+
+```
+        required: {
+			onesignalAppId: "",
+			onesignalApiKey: "",
+			text: ""
+		},
+		optional: {
+			title: ""
+		}
+```
+
+#### Setup
+OneSignal requires that you create a setup a API Key.
+
+<hr>
+
+
+## PagerDuty
+
+```
+        required: {
+			pagerDutyApiKey: "",
+            pagerDutyRoutingKey: "",
+            eventAction: "", (trigger, acknowldge or resolve) 
+            source: "",
+            severity: "", (critical, warning, error or info)
+            text: ""
+		},
+		optional: {
+            dedup_key: "",
+            timestamp: "",
+            component: "",
+            group: "",
+            class: "",
+            custom_details: {}
+        }
+```
+
+#### Setup
+To setup PagerDuty to work with Reach, you will need a Api Key and Routing Key (aka Integration Key). The Api Key can be found in the Integrations Menu, then API Access and Keys page. The Routng Key will be provided when you create a new Service, the service will need to haev the Events API v2 Integration selected, after creating you will be provided with the Routing/Integration key.
 
 <hr>
 

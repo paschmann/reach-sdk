@@ -16,6 +16,10 @@ const Gitter = require("./providers/gitter");
 const Ifttt = require("./providers/ifttt");
 const Mailgun = require("./providers/mailgun");
 const Matrix = require("./providers/matrix");
+const Mattermost = require("./providers/mattermost");
+const OneSignal = require("./providers/onesignal");
+const PagerDuty = require("./providers/pagerduty");
+
 
 class Reach {
 	providers = {};
@@ -31,6 +35,7 @@ class Reach {
 		this.providers["clicksendsms"] = new ClickSendSMS();
 		this.providers["line"] = new Line();
 		this.providers["teams"] = new Teams();
+		this.providers["googlechat"] = new GoogleChat();
 		this.providers["signal"] = new Signal();
 		this.providers["webhook"] = new Webhook();
 		this.providers["sendgrid"] = new SendGrid();
@@ -39,6 +44,9 @@ class Reach {
 		this.providers["ifttt"] = new Ifttt();
 		this.providers["mailgun"] = new Mailgun();
 		this.providers["matrix"] = new Matrix();
+		this.providers["mattermost"] = new Mattermost();
+		this.providers["onesignal"] = new OneSignal();
+		this.providers["pagerduty"] = new PagerDuty();
 	}
 
 	static async send(notification) {
