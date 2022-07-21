@@ -1,9 +1,35 @@
-# Reach SDK
+<img src="./resources/header.png" style="margin-bottom: 30px" />
+
 Reach is a node.js module for sending notifications focused on simplicity and extensibility. What's unique about this project? In most cases apps traditionally support a limited set of notification methods, such as email, push notifications or sms, but in some cases, users would prefer being notified in some other way, such as Slack, Whatsapp, Telegram or Discord, or even all of them. The Reach SDK lets you or your app users select and configure their own notification methods, without needing to develop or implement each service.
 
 The project was developed to support my various node.js projects, and avoid redeveloping the same functionality in each of them. I built the module to support <a href="https://www.github.com/paschmann/changd" target="_blank">Changd</a>, which is a website monitoring tool. Using the Reach SDK allows users to select a myriad of notification methods to be used, without the the underlying project having to implement, manage or maintain these options. I was inspired by Apprise (which is written in python) and used Uptime Kuma as a starting point.
 
 If you would like to test out the concept, check out the <A href='https://www.github.com/paschmann/reach-ui' target='_blank'>Reach UI</a>. It is a basic web app that lets you configure and send test notifications for each provider using your own parameters.
+
+
+## Providers
+
+Notification providers are services which the Reach SDK can send messages to. The Reach SDK has been designed to allow developers and contributors to create or add their own custom providers. If you would like to improve, or create a provider for a service not currently offered, check out the <a href="providers/_template.js" target="_blank">_template</a> in the provider's folder, and please submit a pull request.
+
+Below is a list of notifications that the Reach SDK currently supports.
+
+Alerta
+AWS SES
+Bark
+Click Send SMS
+Discord
+Gitter
+Google Chat
+Line
+Signal
+Slack
+SMTP
+Microsoft Teams
+Telegram
+Webhook
+
+<hr>
+
 
 ## Installing
 
@@ -13,7 +39,7 @@ npm install --save reach-sdk
 
 ## Usage
 
-All notification providers have one common required parameter, named text. The property name is the same across all provider types to ensure that the recipient recieves the notification on any of their selected platforms.
+All notification providers have one common required parameter, named text. This property is the same across all provider types to ensure that the recipient recieves the same notification on any of their selected platforms.
 
 1. Import, create, and instantiate an instance of Reach.
 
@@ -47,33 +73,12 @@ console.log(Reach.send(slack_notification));
 
 
 
-## Providers
-
-Notification providers are services to which the Reach SDK can send messages to. The Reach SDK has been designed to allow contributors to create or add their own custom providers. If you would like to create or improve one for a service not currently offered, check out the <a href="providers/_template.js" target="_blank">_template</a> in the provider's folder, and submit a pull request.
-
-Below is a list of notifications that the Reach SDK currently supports.
-
-Alerta
-AWS SES
-Bark
-Click Send SMS
-Discord
-Gitter
-Google Chat
-Line
-Slack
-SMTP
-Microsoft Teams
-Telegram
-Webhook
-
-<hr>
-
+# Supported Notification Services/Providers
 ## Alerta
 #### Parameters
 ```
 
-required: {
+        required: {
 			alertaApiKey: "",
 			alertaApiEndpoint: "",
 			alertaEnvironment: "",
