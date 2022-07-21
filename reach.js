@@ -13,6 +13,9 @@ const SendGrid = require("./providers/sendgrid");
 const Webhook = require("./providers/webhook");
 const Bark = require("./providers/bark");
 const Gitter = require("./providers/gitter");
+const Ifttt = require("./providers/ifttt");
+const Mailgun = require("./providers/mailgun");
+const Matrix = require("./providers/matrix");
 
 class Reach {
 	providers = {};
@@ -33,6 +36,9 @@ class Reach {
 		this.providers["sendgrid"] = new SendGrid();
 		this.providers["bark"] = new Bark();
 		this.providers["gitter"] = new Gitter();
+		this.providers["ifttt"] = new Ifttt();
+		this.providers["mailgun"] = new Mailgun();
+		this.providers["matrix"] = new Matrix();
 	}
 
 	static async send(notification) {

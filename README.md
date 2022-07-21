@@ -20,10 +20,13 @@ Click Send SMS
 Discord
 Gitter
 Google Chat
+IFFFF
 Line
 Signal
 Slack
 SMTP
+Mailgun
+Matrix
 Microsoft Teams
 Telegram
 Webhook
@@ -216,6 +219,22 @@ Please follow this document to setup a incoming webhook and get the URL: <a href
 
 <hr>
 
+## IFTTT
+
+#### Parameters
+```
+        required: {
+            iftttServiceKey: "",
+			eventName: "",
+			text: ""
+        },
+        optional: {}
+```
+#### Setup
+Setup a webhook in IFTTT using this <a href='https://ifttt.com/maker_webhooks/settings' target='_blank'>URL</a>. Next create a new applet and note its name as this needs to be specified in the eventName parameter, use a "Webhook" as the "If" trigger. You can find the iftttServiceKey in Documentation from the <a href='https://ifttt.com/maker_webhooks' target='_blank'>webhooks page</a>.
+
+<hr>
+
 ## Line
 
 #### Parameters
@@ -229,6 +248,30 @@ Please follow this document to setup a incoming webhook and get the URL: <a href
 ```
 #### Setup
 Open <a href='https://developers.line.biz/console' target='_blank'>Developer Console</a>, create a provider. Open the new provider and create a new Messaging API channel. Complete the required fields and navigate to the new channel. On the Basic Settings screen, scroll to the bottom and note your Line User ID, use this in the required parameter field and where you will recieve your messages. To get a access token, select the "Message API" tab, and create a channel access token at the bottom of the screen.
+
+
+<hr>
+
+## Mailgun
+```
+        required: {
+            smtpUsername: "",
+            smtpPassword: "",
+            smtpFrom: "",
+            smtpTo: "",
+            subject : "",
+            text: ""
+        },
+        optional: {
+            smtpCC: "",
+            smtpBCC: "",
+            html: "",
+            attachments: ""
+        }
+```
+
+#### Setup
+Once you have your mailgun account setup, you can get your username and password from the SMTP page on your <a href='https://app.mailgun.com/app/sending/domains' target='_blank'>domain</a>.
 
 <hr>
 
@@ -328,6 +371,23 @@ Setup a API Key with access to the "Mail Send" role, using the Settings menu fro
 
 #### Setup
 Create a bot using the @botfather channel. Take note of the Access Token. To get the chat_id parameter, create a new group chat and add your new bot, also add @RawDataBot. This will print out the chat object, and in the object will be the TelegramChatID.
+
+<hr>
+
+## Matrix
+
+```
+        required: {
+            matrixHomeServerUrl: "",
+			matrixAccessToken: "",
+			matrixRoomId: "",
+			text: ""
+        },
+        optional: {}
+```
+
+#### Setup
+In order to send notifications to Matrix, Reach requires the Homeserver Url, a access token and the room ID. In the <a href='https://element.io' target='_blank'>Element Webclient</a> you can get the Homeserver URL and Access Token from the "All Settings" menu and Help and About screen in the Advanced section. The room ID can be viewed in the Room settings, under the Advanced screen.
 
 <hr>
 
