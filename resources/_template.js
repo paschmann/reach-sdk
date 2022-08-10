@@ -1,16 +1,15 @@
 // This is a non-functioning template to use as a reference when creating a new provider
 // Please import this provider and declare it in root reach.js file
-
 const provider = require("./provider");
 
 // Import any dependencies, be sure to include them in the package.json file
 const axios = require("axios");
 
 // Change the class name
-class Slack extends provider {
+class ProviderName extends provider {
 
 	// Required - name of the provider
-	name = "slack";
+	name = "providername";
     
 	// Define the required and optional parameters for the provider
 	parameters = {
@@ -32,13 +31,13 @@ class Slack extends provider {
 			// Example: Send email with defined transporter object
 			await transporter.sendMail({
 				from: notification.required.from,
-				cc: notification.optional.cc,
-				bcc: notification.optional.bcc,
 				to: notification.required.to,
 				subject: notification.required.subject,
 				text: notification.required.text,
-				html: notification.optional.html,
-				attachments: notification.optional.attachments
+				... (notification.optional.cc && { attachments: notification.optional.cc }),
+				... (notification.optional.bcc && { attachments: notification.optional.bcc }),
+				... (notification.optional.html && { attachments: notification.optional.html }),
+				... (notification.optional.attachments && { attachments: notification.optional.attachments }),
 			});
     
 			return "Sent Successfully.";
@@ -48,4 +47,4 @@ class Slack extends provider {
 	}
 }
 
-module.exports = SES;
+module.exports = ProviderName;
