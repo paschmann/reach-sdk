@@ -10,9 +10,7 @@ class Slack extends provider {
 			slackwebhookURL: "",
 			text: ""
 		},
-		optional: {
-            
-		}
+		optional: {}
 	};
 
 	async send(notification) {

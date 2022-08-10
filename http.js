@@ -10,6 +10,7 @@ var http = new ReachHttp();
 
 
 const https = require("https");
+const Buffer = require("Buffer");
 
 class ReachHttp {
 

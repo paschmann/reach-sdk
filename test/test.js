@@ -1,4 +1,4 @@
-import { Reach } from "../reach";
+const { Reach } = require("../reach");
 Reach.init();
 
 const smtp_notification = {
@@ -71,5 +71,5 @@ const telegram_notification = {
 // Examples
 //console.log(Reach.send(smtp_notification));
 //console.log(Reach.send(ses_notification));
-//console.log(Reach.listProviders());
+console.log(Reach.listProviders());
 //console.log(Reach.parameters('ses'));

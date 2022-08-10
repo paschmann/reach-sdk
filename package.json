@@ -1,6 +1,6 @@
 {
   "name": "reach-sdk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A node.js library for sending notifications focused on simplicity and extensibility.",
   "main": "reach.js",
   "scripts": {
