@@ -50,14 +50,13 @@ const discord_notification = {
 console.log(Reach.send(slack_notification));
 ```
 
-## Providers
+# Providers
 
 Notification providers are services which the Reach SDK can send messages to. The Reach SDK has been designed to allow developers and contributors to create or add their own custom providers. If you would like to improve, or create a provider for a service not currently offered, check out the <a href="resources/_template.js" target="_blank">_template</a> in the resources folder, and please submit a pull request.
 
-Below is a list of notification providers the Reach SDK currently supports.
+Below is a list of notification providers the Reach SDK currently supports. Open each to view additional details.
 
-
-# Supported Notification Services/Providers
+<hr>
 
 
 <details>
