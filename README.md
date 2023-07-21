@@ -82,7 +82,10 @@ console.log(Reach.send(slack_notification));
 
 
 # Supported Notification Services/Providers
-## Alerta
+
+<details open>
+  <summary>Alerta</summary>
+
 #### Parameters
 ```
 
@@ -109,9 +112,13 @@ console.log(Reach.send(slack_notification));
 #### Setup
 In Alerta open the menu on the left, select API Keys and create a new API key. The key will need the write:alerts scope. The API Endpoint can be found in the About menu screen.
 
+</details>
+
 <hr>
 
-## Amazon SES
+<details>
+  <summary>Amazon SES</summary>
+
 #### Parameters
 ```
         required: {
@@ -133,9 +140,12 @@ In Alerta open the menu on the left, select API Keys and create a new API key. T
 #### Setup
 Please follow this document to setup SES: <a href='https://docs.aws.amazon.com/ses/latest/dg/setting-up.html' target='_blank'>Guide</a>
 
+</details>
 <hr>
 
-## Bark
+<details>
+  <summary>Bark</summary>
+
 #### Parameters
 ```
 
@@ -151,10 +161,13 @@ Please follow this document to setup SES: <a href='https://docs.aws.amazon.com/s
 #### Setup
 In order to use Bark push notifications with their iOS app, you need a Bark server. You can set one up using their <a href='https://github.com/Finb/bark-server#for-docker-user' target='_blank'>guide</a> and Docker is a quick and easy option. Once you have the server running, you will need the Server URL and the Device Key parameters, you can find the Device Key in the mobile app in the "Server List" screen (Alphpa numeric code) below the server address.
 
+</details>
 
 <hr>
 
-## Click Send SMS
+<details>
+  <summary>Click Send SMS</summary>
+
 #### Parameters
 ```
 
@@ -173,9 +186,11 @@ In order to use Bark push notifications with their iOS app, you need a Bark serv
 #### Setup
 In the Click Send admin panel, you can get your SMS login and API Key from the Developers, API Credentials screen.
 
+</details>
 <hr>
 
-## Discord
+<details>
+  <summary>Discord</summary>
 
 #### Parameters
 ```
@@ -190,9 +205,11 @@ In the Click Send admin panel, you can get your SMS login and API Key from the D
 #### Setup
 In Discord, open the channel settings and select Integrations. Create a new webhook and Copy the Webhook URL into the discordWebhookUrl parameter. The discordUsername can be any string, if empty, it will be the bots name that was provided when creating the webhook.
 
+</details>
 <hr>
 
-## Gitter
+<details>
+  <summary>Gitter</summary>
 
 #### Parameters
 ```
@@ -206,9 +223,11 @@ In Discord, open the channel settings and select Integrations. Create a new webh
 #### Setup
 Gitter notifications require a Personal Access Token, this can be created from their <a href='https://developer.gitter.im/apps' target='_blank'>developer site</a>. Messages can be sent to rooms you are already a member of. In order to get the room ID, you will need to use something like Chrome Developer Tools to view network requests. Open Chrome dev tools and select the Network requests tab, clear the history (if needed) and open the room, this should show the API call to the chatMessages endpoint which will include the room ID. E.g.  https://gitter.im/api/v1/rooms/<b>62d804996da03739849a4d67</b>/chatMessages
 
+</details>
 <hr>
 
-## Google Chat
+<details>
+  <summary>Google Chat</summary>
 
 #### Parameters
 ```
@@ -222,9 +241,11 @@ Gitter notifications require a Personal Access Token, this can be created from t
 Important: webhooks are only enabled for Google Workspace accounts, not personal Gmail accounts.
 Please follow this document to setup a incoming webhook and get the URL: <a href='https://developers.google.com/chat/how-tos/webhooks#node.js' target='_blank'>Guide</a>
 
+</details>
 <hr>
 
-## IFTTT
+<details>
+  <summary>IFTTT</summary>
 
 #### Parameters
 ```
@@ -238,9 +259,11 @@ Please follow this document to setup a incoming webhook and get the URL: <a href
 #### Setup
 Setup a webhook in IFTTT using this <a href='https://ifttt.com/maker_webhooks/settings' target='_blank'>URL</a>. Next create a new applet and note its name as this needs to be specified in the eventName parameter, use a "Webhook" as the "If" trigger. You can find the iftttServiceKey in Documentation from the <a href='https://ifttt.com/maker_webhooks' target='_blank'>webhooks page</a>.
 
+</details>
 <hr>
 
-## Line
+<details>
+  <summary>Line</summary>
 
 #### Parameters
 ```
@@ -254,10 +277,12 @@ Setup a webhook in IFTTT using this <a href='https://ifttt.com/maker_webhooks/se
 #### Setup
 Open <a href='https://developers.line.biz/console' target='_blank'>Developer Console</a>, create a provider. Open the new provider and create a new Messaging API channel. Complete the required fields and navigate to the new channel. On the Basic Settings screen, scroll to the bottom and note your Line User ID, use this in the required parameter field and where you will recieve your messages. To get a access token, select the "Message API" tab, and create a channel access token at the bottom of the screen.
 
-
+</details>
 <hr>
 
-## Mailgun
+<details>
+  <summary>Mailgun</summary>
+
 ```
         required: {
             smtpUsername: "",
@@ -278,9 +303,12 @@ Open <a href='https://developers.line.biz/console' target='_blank'>Developer Con
 #### Setup
 Once you have your mailgun account setup, you can get your username and password from the SMTP page on your <a href='https://app.mailgun.com/app/sending/domains' target='_blank'>domain</a>.
 
+</details>
 <hr>
 
-## SMTP
+<details>
+  <summary>SMTP</summary>
+
 ```
         required: {
             smtpHost: "Server Host",
@@ -311,10 +339,12 @@ Once you have your mailgun account setup, you can get your username and password
 #### Setup
 Please follow your hosting providers' instructions for setting up and getting the above parameters.
 
-
+</details>
 <hr>
 
-## Signal
+<details>
+  <summary>Signal</summary>
+
 ```
         required: {
             signalUrl: "",
@@ -327,9 +357,12 @@ Please follow your hosting providers' instructions for setting up and getting th
 #### Setup
 Signal requires that a middleware Rest API is in place before it can be used with the reach API. Please see this <a href='https://github.com/bbernhard/signal-cli-rest-api' target='_blank'>guide</a> for setting up a middleware layer using docker, you can then use this endpoint as the signalUrl.
 
+</details>
 <hr>
 
-## Slack
+<details>
+  <summary>Slack</summary>
+
 ```
         required: {
             slackwebhookURL: "",
@@ -341,10 +374,12 @@ Signal requires that a middleware Rest API is in place before it can be used wit
 Follow this guide to create a webhook: <a href='https://api.slack.com/messaging/webhooks'>Guide</a>. 
 TL;DR - Open your workspace settings, create a new app and get the webhook details from the Incoming Webhooks page.
 
-
+</details>
 <hr>
 
-## SendGrid
+<details>
+  <summary>SendGrid</summary>
+
 
 ```
         required: {
@@ -360,10 +395,13 @@ TL;DR - Open your workspace settings, create a new app and get the webhook detai
 #### Setup
 Setup a API Key with access to the "Mail Send" role, using the Settings menu from the SendGrid Dashboard/
 
+</details>
 <hr>
 
 
-## Telegram
+<details>
+  <summary>Telegram</summary>
+
 
 ```
         required: {
@@ -377,9 +415,12 @@ Setup a API Key with access to the "Mail Send" role, using the Settings menu fro
 #### Setup
 Create a bot using the @botfather channel. Take note of the Access Token. To get the chat_id parameter, create a new group chat and add your new bot, also add @RawDataBot. This will print out the chat object, and in the object will be the TelegramChatID.
 
+</details>
 <hr>
 
-## Matrix
+<details>
+  <summary>Matrix</summary>
+
 
 ```
         required: {
@@ -394,9 +435,12 @@ Create a bot using the @botfather channel. Take note of the Access Token. To get
 #### Setup
 In order to send notifications to Matrix, Reach requires the Homeserver Url, a access token and the room ID. In the <a href='https://element.io' target='_blank'>Element Webclient</a> you can get the Homeserver URL and Access Token from the "All Settings" menu and Help and About screen in the Advanced section. The room ID can be viewed in the Room settings, under the Advanced screen.
 
+</details>
 <hr>
 
-## Mattermost
+<details>
+  <summary>Mattermost</summary>
+
 
 ```
         required: {
@@ -409,9 +453,12 @@ In order to send notifications to Matrix, Reach requires the Homeserver Url, a a
 #### Setup
 In order to send notifications to Mattermost, you will need to enable incoming webhooks for your instance. You can do this from the Main Menu, under integrations. Copy the URL and use this in the mattermostWebhookUrl parameter.
 
+</details>
 <hr>
 
-## Microsoft Teams
+<details>
+  <summary>Microsoft Teams</summary>
+
 
 ```
         required: {
@@ -424,9 +471,12 @@ In order to send notifications to Mattermost, you will need to enable incoming w
 #### Setup
 In order to receive notifications in MS Teams, you need to enable a incoming webhook for the channel. Open the channel settings menu using the three dots next to the channel name in Channels list, and select connectors. Select Add for the incoming webhook. Once added, select configure, provide the name and press Create. You will then receive the webhook Url. For more information, see this: <a href='https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook' target='_blank'>Guide</a>
 
+</details>
 <hr>
 
-## OneSignal
+<details>
+  <summary>OneSignal</summary>
+
 
 ```
         required: {
@@ -442,10 +492,13 @@ In order to receive notifications in MS Teams, you need to enable a incoming web
 #### Setup
 OneSignal requires that you create a setup a API Key.
 
+</details>
 <hr>
 
 
-## PagerDuty
+<details>
+  <summary>PagerDuty</summary>
+
 
 ```
         required: {
@@ -469,9 +522,12 @@ OneSignal requires that you create a setup a API Key.
 #### Setup
 To setup PagerDuty to work with Reach, you will need a Api Key and Routing Key (aka Integration Key). The Api Key can be found in the Integrations Menu, then API Access and Keys page. The Routng Key will be provided when you create a new Service, the service will need to haev the Events API v2 Integration selected, after creating you will be provided with the Routing/Integration key.
 
+</details>
 <hr>
 
-## Webhook
+<details>
+  <summary>Webhooks</summary>
+
 
 ```
         required: {
@@ -486,3 +542,4 @@ To setup PagerDuty to work with Reach, you will need a Api Key and Routing Key (
 #### Setup
 This is a generic provider which makes a HTTP POST to the webhookUrl.
 
+</details>
