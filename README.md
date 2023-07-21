@@ -7,35 +7,6 @@ The project was developed to support my various node.js projects, and avoid rede
 If you would like to test out the concept, check out the <A href='https://www.github.com/paschmann/reach-ui' target='_blank'>Reach UI</a>. It is a basic web app that lets you configure and send test notifications for each provider using your own parameters.
 
 
-## Providers
-
-Notification providers are services which the Reach SDK can send messages to. The Reach SDK has been designed to allow developers and contributors to create or add their own custom providers. If you would like to improve, or create a provider for a service not currently offered, check out the <a href="resources/_template.js" target="_blank">_template</a> in the resources folder, and please submit a pull request.
-
-Below is a list of notification providers the Reach SDK currently supports.
-
-<ul>
-<li>Alerta</li>
-<li>Amazon SES</li>
-<li>Bark</li>
-<li>Click Send SMS</li>
-<li>Discord</li>
-<li>Gitter</li>
-<li>Google Chat</li>
-<li>IFFFF</li>
-<li>Line</li>
-<li>Mailgun</li>
-<li>Matrix</li>
-<li>Mattermost</li>
-<li>Microsoft Teams</li>
-<li>OneSignal</li>
-<li>PagerDuty</li>
-<li>SendGrid</li>
-<li>Signal</li>
-<li>Slack</li>
-<li>SMTP</li>
-<li>Telegram</li>
-<li>Webhook</li>
-</ul>
 <hr>
 
 
@@ -79,11 +50,17 @@ const discord_notification = {
 console.log(Reach.send(slack_notification));
 ```
 
+## Providers
+
+Notification providers are services which the Reach SDK can send messages to. The Reach SDK has been designed to allow developers and contributors to create or add their own custom providers. If you would like to improve, or create a provider for a service not currently offered, check out the <a href="resources/_template.js" target="_blank">_template</a> in the resources folder, and please submit a pull request.
+
+Below is a list of notification providers the Reach SDK currently supports.
 
 
 # Supported Notification Services/Providers
 
-<details open>
+
+<details>
   <summary>Alerta</summary>
 
 #### Parameters
